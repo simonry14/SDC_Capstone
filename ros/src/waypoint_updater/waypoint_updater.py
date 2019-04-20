@@ -20,8 +20,8 @@ as well as to verify your TL classifier.
 TODO (for Yousuf and Aaron): Stopline location for each traffic light.
 '''
 
-LOOKAHEAD_WPS = 30 # Number of waypoints we will publish. 
-MAX_DECEL = 3.086419753 # The deceleration to stop the car travelling at 11.11 ms(max vel) within a distance of 20m.
+LOOKAHEAD_WPS = 100 # Number of waypoints we will publish. 
+MAX_DECEL = 1.234567901 # The deceleration to stop the car travelling at 11.11 ms(max vel) within a distance of 20m.
 
 
 class WaypointUpdater(object):
@@ -97,7 +97,7 @@ class WaypointUpdater(object):
 			# If a RED traffic light is observed the velocities of the waypoints are altered 
 			# to allow the car to come to a smooth stop at the traffic light's stopline 
 			lane.waypoints = self.decelerate_waypoints(base_waypoints, closest_idx)
-
+      
 		return lane	
 	
 	def decelerate_waypoints(self, waypoints, closest_idx):
