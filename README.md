@@ -12,7 +12,7 @@ Our project are divided into 4 parts.
 
 The details are below.
 
-####The planning subsystem
+#### The planning subsystem
 For the project of interest are the Perception, Planning and Control subsystems. In this implementation the focus was on the traffic light detection node in the Perception subsystem, the waypoint updater node in the Planning subsystem and the Drive by wire (DBW) node of the Control subsystem.
 
 *1] In the Perception subsystem only traffic lights were observed. The traffic light detection node consists of a traffic light detector module (tl_detector) and traffic light classifier module (tl_classifer).
@@ -39,7 +39,7 @@ There are two main functions in the node, 'generate_lane' and 'decelerate_waypoi
 
 If the subscriber `/traffic_waypoints` message has a base waypoint index of [-1] or an index greater than the LOOKAHEAD limit that indicates that the traffic light is not RED or not in the current trajectory given by the subset of base waypoints then the lane message is published with unaltered velocities and the car continues at its current velocity. However, if the subscriber has an index value that falls within the subset of base waypoints the 'decelerate_waypoints' function is called and it creates a new waypoint message and adds new velocities for all the base waypoints within the range. It does this by calculating velocities that are proportiional to the reducing distances as the car moves towards the stopline which are then compared to the reference velocities and the lower selected as the car decelerates. These base waypoints with their velocities adjusted are then published to final_waypoints message.
 
-####Traffic light Detection and Classification
+#### Traffic light Detection and Classification
 
 Traffic light Detection and Classification module is designed to extract the traffic light and determine its color from the camera image. 
 
@@ -68,7 +68,7 @@ recognition.
 The model is saved as 'model.h5' and placed in the folder \CarNDCapstone\ros\src\tl_detector.
 Camera Image and Model's Detections:
 
-####Control System
+#### Control System
 
 This system publishes control commands for the vehicle’s steering, throttle, and brakes based on a list of waypoints to follow. It consists of the following nodes:
 1) Waypoint Follower Node
