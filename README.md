@@ -68,18 +68,19 @@ recognition.
 The model is saved as 'model.h5' and placed in the folder \CarNDCapstone\ros\src\tl_detector.
 Camera Image and Model's Detections:
 
-#### Control System
+#### Control Subsystem
 
 This system publishes control commands for the vehicle’s steering, throttle, and brakes based on a list of waypoints to follow. It consists of the following nodes:
 1) Waypoint Follower Node
 This is an Autoware package that contains code that publishes proposed linear and angular velocities to the /twist_cmd topic. No changes were made to this package
+
 2) Drive By Wire (DBW) Node
 The Udacity test vehicle (Carla) is equipped with a drive-by-wire (dbw) system, meaning the throttle, brake, and steering have electronic control. The dbw node is responsible for publishing the brake, throttle and steering commands by utilizing the vehicle’s target linear and angular velocity. Three controllers are used for each of the different commands that need to be generated.
-Steering Controller
+##### Steering Controller
 The steering controller utilizes the vehicle’s steering ratio and wheelbase length to translate the proposed linear and angular velocities into a steering angle. This steering angle is then passed through a low pass filter to reduce the effect of noise.
-Throttle Controller
+##### Throttle Controller
 The throttle controller is a PID controller that compares the current vehicle velocity with the target velocity and adjusts the throttle accordingly. The throttle gains were tuned manually.
-Braking Controller
+##### Braking Controller
 The braking controller works by braking the vehicle based on the difference between the target velocity and the current vehicle velocity. This proportional gain was tuned manually too.
 
 
